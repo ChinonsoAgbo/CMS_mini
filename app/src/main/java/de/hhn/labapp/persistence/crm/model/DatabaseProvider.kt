@@ -10,7 +10,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 object DatabaseProvider {
-    lateinit var database: AppDatabase
+    private lateinit var database: AppDatabase
         private set
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
@@ -37,10 +37,13 @@ object DatabaseProvider {
 
         // TODO: You can replace this to insert the data into the database instead of the
         //       in-memory list
-        if (Invoices.getAll().isEmpty()) {
+        if (database.invoiceDao().getAll().isEmpty()) {
             val customers = database.customerDao().getAll()
 
-            Invoices.insertAll(
+//            Invoices.insertAll(
+//                InvoicesFactory.createRandomInvoices(5, customers)
+//            )
+            database.invoiceDao().insertAll(
                 InvoicesFactory.createRandomInvoices(5, customers)
             )
         }

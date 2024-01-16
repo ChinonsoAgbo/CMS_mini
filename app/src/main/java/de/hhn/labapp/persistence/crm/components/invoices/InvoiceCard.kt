@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import de.hhn.labapp.persistence.crm.factories.InvoicesFactory
-import de.hhn.labapp.persistence.crm.model.Invoice
+import de.hhn.labapp.persistence.crm.model.entities.Invoice
 import de.hhn.labapp.persistence.crm.util.formatAmount
 
 @OptIn(ExperimentalMaterial3Api::class)

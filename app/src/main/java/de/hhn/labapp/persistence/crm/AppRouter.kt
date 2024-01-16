@@ -21,8 +21,7 @@ import de.hhn.labapp.persistence.crm.factories.CustomerFactory
 import de.hhn.labapp.persistence.crm.factories.InvoicesFactory
 import de.hhn.labapp.persistence.crm.model.DatabaseProvider.withDatabase
 import de.hhn.labapp.persistence.crm.model.entities.Customer
-import de.hhn.labapp.persistence.crm.model.Invoice
-import de.hhn.labapp.persistence.crm.model.Invoices
+import de.hhn.labapp.persistence.crm.model.entities.Invoice
 import de.hhn.labapp.persistence.crm.viewmodel.Screen
 
 class AppRouter @OptIn(ExperimentalMaterial3Api::class) constructor(
@@ -116,7 +115,12 @@ class AppRouter @OptIn(ExperimentalMaterial3Api::class) constructor(
                 return null
             }
 
-            return Invoices.get(id)
+            var invoice: Invoice? = null
+            withDatabase {
+                invoice = invoiceDao().getInvoiceById(id)
+            }.join()
+
+            return invoice
         }
 
         waitOn(::prepareNavigate) { invoice ->

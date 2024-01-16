@@ -1,7 +1,7 @@
 package de.hhn.labapp.persistence.crm.factories
 
 import de.hhn.labapp.persistence.crm.model.entities.Customer
-import de.hhn.labapp.persistence.crm.model.Invoice
+import de.hhn.labapp.persistence.crm.model.entities.Invoice
 import de.hhn.labapp.persistence.crm.util.toLocalDateString
 import de.hhn.labapp.persistence.crm.util.utcDateTime
 import de.hhn.labapp.persistence.crm.util.utcNow

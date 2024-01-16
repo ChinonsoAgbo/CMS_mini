@@ -39,7 +39,7 @@ import de.hhn.labapp.persistence.crm.components.shared.AutoCompleteTextField
 import de.hhn.labapp.persistence.crm.components.shared.ControlButtons
 import de.hhn.labapp.persistence.crm.components.shared.PropertyTextField
 import de.hhn.labapp.persistence.crm.factories.InvoicesFactory
-import de.hhn.labapp.persistence.crm.model.Invoice
+import de.hhn.labapp.persistence.crm.model.entities.Invoice
 import de.hhn.labapp.persistence.crm.util.formatAmount
 import de.hhn.labapp.persistence.crm.util.parseAmount
 import de.hhn.labapp.persistence.crm.viewmodel.InvoiceDetailsViewModel

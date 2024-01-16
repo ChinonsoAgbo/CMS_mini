@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey
 data class Customer(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
-
     var name: String,
     var address: String,
     var city: String,

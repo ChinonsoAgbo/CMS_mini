@@ -1,6 +1,7 @@
 package de.hhn.labapp.persistence.crm.model.daos
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import de.hhn.labapp.persistence.crm.model.entities.Customer
@@ -18,4 +19,5 @@ interface CustomerDao {
 
     @Insert
     fun insertAll(customers: List<Customer>)
+
 }

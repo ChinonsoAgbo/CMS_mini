@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import de.hhn.labapp.persistence.crm.components.shared.AppTitleBar
 import de.hhn.labapp.persistence.crm.factories.CustomerFactory
 import de.hhn.labapp.persistence.crm.factories.InvoicesFactory
-import de.hhn.labapp.persistence.crm.model.Invoice
+import de.hhn.labapp.persistence.crm.model.entities.Invoice
 import de.hhn.labapp.persistence.crm.viewmodel.CustomersOverviewViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
