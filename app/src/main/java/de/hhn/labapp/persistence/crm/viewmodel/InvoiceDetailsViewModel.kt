@@ -29,6 +29,16 @@ class InvoiceDetailsViewModel(
 
     private var _customers by mutableStateOf<List<Customer>?>(null)
     private var _invoice by mutableStateOf<List<Invoice>?>(null)
+    val invoices: List<Invoice>
+        get() {
+
+            if (_invoice == null){
+                viewModelScope.launch{
+                    withDatabase { _invoice = invoiceDao().getAll() }
+                }
+            }
+            return _invoice?: emptyList()
+        }
 
     val customers: List<Customer>
         get() {
@@ -65,11 +75,18 @@ class InvoiceDetailsViewModel(
         invoice.customerId = customerId
         invoice.date = date
 
-        if (invoice.id == null) {
+
             viewModelScope.launch {
                 withDatabase {
+                    if (invoice.id == null) {
                     invoiceDao().insert(invoice) // insert the invoice
-                }
+                    _invoice = invoiceDao().getAll() // Update the list of invoices
+
+                 } else {
+                // Update the existing invoice
+                invoiceDao().update(invoice)
+                _invoice = invoiceDao().getAll() // Update the list of invoices
+            }
 
                 }
         }
